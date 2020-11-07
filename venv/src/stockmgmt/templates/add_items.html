@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
 	
@@ -89,7 +89,7 @@
   <div class="jumbotron">
     <h1> {{title}}</h1>
     <form method='POST' action=''>{% csrf_token %}
-		{{form}}
+		{{form|crispy}}	
         <input type="submit" value='Save'/>
     </form>
 
