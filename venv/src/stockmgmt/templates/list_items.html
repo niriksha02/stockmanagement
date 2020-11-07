@@ -56,12 +56,27 @@
   <body>{% include 'navbar.html' %}
 <main role="main" class="container">
   <div class="jumbotron">
-    <h1> {{title}}</h1>
-    {% for instance in queryset %}
-	{{instance.item_name}}, {{instance.quantity}}<br>
-
-	{% endfor %}
-	
+   <div class="header">{{header}}</div>
+     <div class="display_table">
+	    <table class='table'>
+	        <thead>
+	          <tr>
+	            <th>COUNT</th>
+	            <th>CATEGORY</th>
+	            <th>ITEM NAME</th>
+	            <th>QUANTITY IN STORE</th>
+	          </tr>
+	        </thead>
+	      {% for instance in queryset %}
+	          <tr>
+	            <td>{{forloop.counter}}</td>
+	            <td>{{instance.category}}</td>
+	            <td>{{instance.item_name}}</td>
+	            <td>{{instance.quantity}}</td>
+	          </tr>
+	      {% endfor %}
+	    </table>
+	</div>
 
   </div>
 </main>
