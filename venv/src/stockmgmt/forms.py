@@ -23,7 +23,9 @@ class StockCreateForm(forms.ModelForm):
 			raise forms.ValidationError('This field is required')
 		return item_name
 
+
 class StockSearchForm(forms.ModelForm):
+   export_to_CSV = forms.BooleanField(required=False)
    class Meta:
 	     model = Stock
 	     fields = ['category', 'item_name']
